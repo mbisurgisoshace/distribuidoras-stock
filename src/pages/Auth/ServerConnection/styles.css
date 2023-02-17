@@ -1,0 +1,6 @@
+.ServerConnectionForm {
+    gap: 0.5rem;
+    display: flex;
+    margin-top: 1rem;
+    flex-direction: column;
+}

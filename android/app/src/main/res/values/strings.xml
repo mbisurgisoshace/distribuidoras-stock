@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">stock</string>
+    <string name="title_activity_main">stock</string>
+    <string name="package_name">com.mbisurgi.distribuidoras</string>
+    <string name="custom_url_scheme">com.mbisurgi.distribuidoras</string>
+</resources>

@@ -1,0 +1,12 @@
+.LoginForm {
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.LoginFormWrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
