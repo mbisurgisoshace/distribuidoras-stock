@@ -26,15 +26,15 @@ export default function Hojas() {
 
   useEffect(() => {
     if (isMounted.current) {
-      fetchHojas();
+      fetchHojas(fecha);
     }
   }, [fecha]);
 
   useIonViewWillEnter(() => {
-    fetchHojas();
+    fetchHojas(fecha);
     isMounted.current = true;
   });
-  const fetchHojas = async () => {
+  const fetchHojas = async (fecha: string) => {
     const formattedDate = moment(fecha).format("YYYY-MM-DD");
     const hojas = await getHojas(formattedDate);
     setHojas(hojas);
@@ -61,7 +61,7 @@ export default function Hojas() {
                 showDefaultButtons={true}
                 onIonChange={(event) => {
                   setFecha(event.detail.value as string);
-                  fetchHojas();
+                  fetchHojas(event.detail.value as string);
                 }}
               />
             </IonModal>

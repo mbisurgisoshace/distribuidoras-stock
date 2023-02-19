@@ -165,7 +165,7 @@ export default function Hoja() {
             </IonSegmentButton>
           ))}
         </IonSegment>
-        {envases.length && (
+        {envases.length > 0 ? (
           <FormProvider {...methods}>
             <form>
               {items.map((item, index: number) => {
@@ -185,7 +185,7 @@ export default function Hoja() {
               })}
             </form>
           </FormProvider>
-        )}
+        ) : null}
         <IonFab slot="fixed" vertical="bottom" horizontal="end">
           <IonFabButton id="open-modal">
             <IonIcon icon={add} />
