@@ -1,5 +1,5 @@
-import axios, { AxiosError, AxiosResponse } from "axios";
 import { Storage } from "@ionic/storage";
+import axios, { AxiosError, AxiosResponse } from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 
 import { NoServerException } from "./NoServerException";
@@ -82,11 +82,18 @@ export const AuthProvider = ({ children }: { children: any }) => {
     }
   };
 
-  const logout = async () => {};
+  const logout = async () => {
+    try {
+      await store?.remove(TOKEN_KEY);
+      setToken("");
+    } catch (err) {}
+  };
 
   const connectServer = async (serverUrl: string) => {
     try {
+      await store?.remove(TOKEN_KEY);
       await store?.set(SERVER_KEY, serverUrl);
+      setToken("");
       setServer(serverUrl);
     } catch (err) {
       throw err;

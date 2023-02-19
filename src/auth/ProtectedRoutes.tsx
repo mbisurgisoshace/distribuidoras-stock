@@ -9,8 +9,9 @@ import {
 import { Route, Redirect } from "react-router-dom";
 import { personOutline, newspaperOutline } from "ionicons/icons";
 
-import Hojas from "../pages/Hojas";
 import { useAuth } from "./AuthProvider";
+import { Hoja, HojasList } from "../pages/Hojas";
+import Settings from "../pages/Settings";
 
 export default function ProtectedRoutes() {
   const auth = useAuth();
@@ -25,7 +26,13 @@ export default function ProtectedRoutes() {
         <Route exact path="/" render={() => <Redirect to={"/hojas"} />} />
         <Route exact path="/login" render={() => <Redirect to={"/hojas"} />} />
         <Route exact path={"/hojas"}>
-          <Hojas />
+          <HojasList />
+        </Route>
+        <Route exact path={"/hojas/:hojaId"}>
+          <Hoja />
+        </Route>
+        <Route exact path={"/settings"}>
+          <Settings />
         </Route>
       </IonRouterOutlet>
       <IonTabBar slot="bottom">

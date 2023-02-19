@@ -1,0 +1,64 @@
+.EnvaseCard {
+    padding: 1rem;
+}
+
+.EnvaseCard .EnvaseCardHeader h4 {
+    margin: 0;
+    color: #3880ff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.EnvaseCard .EnvaseCardHeader h6 {
+    margin: 0;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.EnvaseCard .EnvaseCardContent {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.EnvaseCardFooter {
+    background-color: #f7f7f7;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.CargaInput {
+    padding: 5px;
+    display: flex;
+    border-radius: 5px;
+    flex-direction: column;
+    background-color: #f7f7f7;
+}
+
+.CargaInput label {
+    color: darkgray;
+    font-weight: bold;
+}
+
+.CargaInput input {
+    width: 100%;
+    color: black;
+    border: none;
+    outline: none;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+ion-title h3 {
+    margin: 0;
+    font-size: 14px;
+}
+
+ion-title p {
+    margin: 0;
+    color: #3880ff;
+    font-size: 12px;
+    font-weight: bold;
+}
