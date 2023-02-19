@@ -144,7 +144,7 @@ export default function Hoja() {
       <IonHeader>
         <IonToolbar>
           <IonTitle>
-            <h3>{`${formatDate(hoja?.fecha || "")} - Hoja nro ${
+            <h3>{`${formatDate(hoja?.fecha || "")} - ${
               hoja?.hoja_ruta_numero
             }`}</h3>
             <p>{`${hoja?.apellido.toUpperCase()}, ${hoja?.nombre.toUpperCase()}`}</p>
