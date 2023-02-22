@@ -35,10 +35,10 @@ import useDates from "../../../hooks/useDates";
 type RouteParams = { hojaId: string };
 export default function Hoja() {
   const [toast] = useIonToast();
+  const methods = useForm<Carga>();
   const { formatDate } = useDates();
   const [present, dismiss] = useIonLoading();
   const { hojaId } = useParams<RouteParams>();
-  const methods = useForm<Carga>();
   const { control, handleSubmit, reset } = methods;
   const {
     fields: items,
@@ -57,8 +57,10 @@ export default function Hoja() {
   const { getCarga, createCarga, updateCarga } = useCargasService();
 
   useEffect(() => {
-    fetchCarga(parseInt(hojaId), parseInt(currentCarga));
-  }, [currentCarga]);
+    if (hoja) {
+      fetchCarga(hoja, parseInt(currentCarga));
+    }
+  }, [hoja, currentCarga]);
 
   useIonViewWillEnter(() => {
     const fetchHoja = async () => {
@@ -75,7 +77,8 @@ export default function Hoja() {
     fetchEnvases();
   });
 
-  const fetchCarga = async (hojaRutaId: number, tipoCargaId: number) => {
+  const fetchCarga = async (hoja: HojaRuta, tipoCargaId: number) => {
+    const hojaRutaId = hoja.hoja_ruta_id;
     const carga = await getCarga(hojaRutaId, tipoCargaId);
     if (carga) {
       reset({
@@ -104,7 +107,7 @@ export default function Hoja() {
         await createCarga(data);
       }
 
-      await fetchCarga(parseInt(hojaId), parseInt(currentCarga));
+      await fetchCarga(hoja!, parseInt(currentCarga));
 
       toast({
         color: "success",
